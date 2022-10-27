@@ -1,14 +1,16 @@
-def githubUrl = "https://github.com/rberwald/jenkins-test-pipeline.git"
+def jobName = "job1"
+def gitUrl = "https://github.com/rberwald/jenkins-test-pipeline.git"
+def branches = "*/main"
 
-pipelineJob("Seed job1") {
+pipelineJob("${jobName}") {
 definition {
     cpsScm {
         scm {
             git{
               remote {
-                url("${githubUrl}")
+                url("${gitUrl}")
               }
-              branch("*/main")
+              branch("${branches}")
             }
         }
     }
